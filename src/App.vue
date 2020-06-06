@@ -1,21 +1,19 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Loader></Loader>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Loader from "./components/Loader.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 export default {
   name: "App",
   components: {
-    Header,
-    Loader
+    Header
   }
 };
 </script>
@@ -28,7 +26,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
-    color: #2c3e50;
+    color: white;
     margin: 0 auto;
     width: 80%;
   }
