@@ -1,16 +1,10 @@
 <template>
-  <div id="about">
-    <rotate-box></rotate-box>
-  </div>
+  <div id="about"></div>
 </template>
 
 <script>
-import RotateBox from "../components/RotateBox";
-
 export default {
   name: "About",
-  components: {
-    RotateBox
-  }
+  components: {}
 };
 </script>

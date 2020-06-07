@@ -1,128 +1,160 @@
 <template>
-  <div id="home"></div>
+  <div id="home">
+    <cycle-loader></cycle-loader>
+    <random-text
+      :width="width"
+      :text="text"
+      :font-height="fontSize"
+      :animate="animate"
+      :animation-duration="animationDuration"
+      :animation-speed="animationSpeed"
+      :num-keyframes="numKeyframes"
+    />
+  </div>
 </template>
 
 <script>
-import CycleLoader from "../components/CycleLoader.vue";
-import * as THREE from "three";
-
-import { OrbitControls } from "../misc/OrbitControls.js";
+import CycleLoader from "../components/CycleLoader";
+import RandomText from "../components/RandomText";
 
 export default {
   name: "home",
-  data() {
-    var camera, scene, renderer, geometry, controls;
-    return { camera, scene, renderer, geometry };
+  components: {
+    CycleLoader,
+    RandomText
   },
-  mounted() {
-    this.init();
-    this.animate();
+  data() {
+    return {
+      text:
+        "Picasso had a saying: good artists copy, great artist steal. And we have always been shameless about stealing great ideas.",
+      fadeInOut: true,
+      animationDuration: 4000,
+      animationSpeed: 1000,
+      fontSize: 50,
+      numKeyframes: 20,
+      animate: "in"
+    };
+  },
+  computed: {
+    width: () => {
+      document.body.offsetWidth * 0.6;
+    },
+    swichAnimate: () => {
+      this.animate = this.animate == "in" ? "out" : "in";
+    }
   },
   methods: {
-    animate() {
-      requestAnimationFrame(this.animate);
-      this.renderer.render(this.scene, this.camera);
-    },
-    init() {
-      this.camera = new THREE.PerspectiveCamera(
-        45,
-        window.innerWidth / window.innerHeight,
-        1,
-        10000
+    _getWindowWidth() {
+      return (
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth
       );
-      this.camera.position.set(0, -400, 600);
-
-      this.scene = new THREE.Scene();
-      this.scene.background = new THREE.Color(0xf0f0f0);
-
-      var loader = new THREE.FontLoader();
-      loader.load("../misc/helvetiker_regular.typeface.json", function(font) {
-        var xMid, text;
-
-        var color = 0x006699;
-
-        var matDark = new THREE.LineBasicMaterial({
-          color: color,
-          side: THREE.DoubleSide
-        });
-
-        var matLite = new THREE.MeshBasicMaterial({
-          color: color,
-          transparent: true,
-          opacity: 0.4,
-          side: THREE.DoubleSide
-        });
-
-        var message = "   Three.js\nSimple text.";
-
-        var shapes = font.generateShapes(message, 100);
-        this.geometry = new THREE.ShapeBufferGeometry(shapes);
-
-        this.geometry.computeBoundingBox();
-
-        xMid =
-          -0.5 *
-          (this.geometry.boundingBox.max.x - this.geometry.boundingBox.min.x);
-
-        this.geometry.translate(xMid, 0, 0);
-
-        // make shape ( N.B. edge view not visible )
-
-        text = new THREE.Mesh(this.geometry, matLite);
-        text.position.z = -150;
-        this.scene.add(text);
-
-        // make line shape ( N.B. edge view remains visible )
-
-        var holeShapes = [];
-
-        for (var i = 0; i < shapes.length; i++) {
-          var shape = shapes[i];
-
-          if (shape.holes && shape.holes.length > 0) {
-            for (var j = 0; j < shape.holes.length; j++) {
-              var hole = shape.holes[j];
-              holeShapes.push(hole);
-            }
-          }
-        }
-
-        shapes.push.apply(shapes, holeShapes);
-
-        var lineText = new THREE.Object3D();
-
-        for (var i = 0; i < shapes.length; i++) {
-          var shape = shapes[i];
-
-          var points = shape.getPoints();
-          var geometry = new THREE.BufferGeometry().setFromPoints(points);
-
-          geometry.translate(xMid, 0, 0);
-
-          var lineMesh = new THREE.Line(geometry, matDark);
-          lineText.add(lineMesh);
-        }
-
-        this.scene.add(lineText);
-      }); //end load function
-
-      this.renderer = new THREE.WebGLRenderer({ antialias: true });
-      this.renderer.setPixelRatio(window.devicePixelRatio);
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(this.renderer.domElement);
-
-      this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-      this.controls.target.set(0, 0, 0);
-      this.controls.update();
-
-      window.addEventListener("resize", this.onWindowResize, false);
     },
-    onWindowResize() {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
+    _setupResizeListener() {
+      // Create "window.throttledResize" event that listens to resize and throttles it to fire once per frame at most
+      // https://developer.mozilla.org/en-US/docs/Web/Events/resize#requestAnimationFrame_customEvent
+      let running = false;
+      const throttleResize = () => {
+        if (!running) {
+          running = true;
+          requestAnimationFrame(() => {
+            window.dispatchEvent(new CustomEvent("throttledResize"));
+            running = false;
+          });
+        }
+      };
+      window.addEventListener("resize", throttleResize);
+      window.addEventListener("throttledResize", this._handleResize.bind(this));
+    },
+    _handleResize() {
+      const width = this._getWindowWidth();
+      if (Math.abs(width * 0.6 - this.state.width) > 100) {
+        this.setState({ width: width * 0.6 });
+      }
     }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+// Vars --------------------------------------------------------
+
+// Keep synced w/ js
+$numKeyframes: 20;
+
+$fadeRadius: 150;
+@function randomAbout0($domain) {
+  @return random(2 * $domain) - $domain;
+}
+
+// Styles ------------------------------------------------------
+body,
+#app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-height: 480px;
+  width: 100%;
+  min-width: 320px;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle, #222, #0e0e0e);
+  color: white;
+  font-family: "Inconsolata";
+  font-size: 40px;
+}
+
+.container {
+  position: relative;
+}
+
+.letter {
+  position: absolute;
+}
+
+@for $i from 1 through $numKeyframes {
+  @keyframes fade-in-#{$i} {
+    from {
+      opacity: 0;
+      transform: translate3d(
+          randomAbout0($fadeRadius) + 0px,
+          randomAbout0($fadeRadius) + 0px,
+          randomAbout0($fadeRadius) + 0px
+        )
+        rotate3d(random(), random(), random(), 180deg);
+      filter: blur(5px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: unset;
+    }
+  }
+  @keyframes fade-out-#{$i} {
+    from {
+      opacity: 1;
+      transform: none;
+      filter: unset;
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(
+          randomAbout0($fadeRadius) + 0px,
+          randomAbout0($fadeRadius) + 0px,
+          randomAbout0($fadeRadius) + 0px
+        )
+        rotate3d(random(), random(), random(), 180deg);
+      filter: blur(5px);
+    }
+  }
+}
+</style>
