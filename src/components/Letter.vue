@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition :name="'fade-' + animate + '-' + keyframe">
     <div
       class="letter"
       v-show="state.show"
@@ -12,8 +12,7 @@
         transitionProperty: 'top, left, font-size',
         transitionDuration: 1 + 's',
         transitionTimingFunction: easingFunction,
-        transitionDelay: transitionDelay,
-        animation: animationString
+        transitionDelay: transitionDelay
       }"
     >
       {{ char }}
@@ -45,11 +44,12 @@ export default {
       timeouts: [],
       easingFunction: null,
       transitionDelay: null,
-      animationString: null
+      animationString: null,
+      keyframe: null
     };
   },
   mounted() {
-    const keyframe = Math.floor(Math.random() * this.numKeyframes + 1);
+    this.keyframe = Math.floor(Math.random() * this.numKeyframes + 1);
     this.easingFunction = `cubic-bezier(${Math.random() * 0.8 +
       +0.1},0,${Math.random() * 0.5 + 0.25},1)`;
     const proportionalPosition = this.i / this.textLen;
@@ -57,9 +57,9 @@ export default {
       proportionalPosition / 2 + Math.random() * proportionalPosition;
 
     this.animationString = this.state.animate
-      ? `${"fade-" + this.state.fade + "-" + keyframe} ${this.easingFunction} ${
-          this.animationSpeed
-        }ms forwards `
+      ? `${"fade-" + this.state.fade + "-" + this.keyframe} ${
+          this.easingFunction
+        } ${this.animationSpeed}ms forwards `
       : null;
     if (this.animate === "in") {
       this._fadeIn();
@@ -70,7 +70,7 @@ export default {
   },
   watch: {
     animate(val) {
-      if (nextProps.animate === "in") {
+      if (val === "in") {
         this._fadeIn();
       } else {
         this._fadeOut();
@@ -155,6 +155,18 @@ $fadeRadius: 150;
         rotate3d(random(), random(), random(), 180deg);
       filter: blur(5px);
     }
+  }
+  .fade-in-#{$i}-enter-active {
+    animation: fade-in-#{$i}
+      cubic-bezier(random() * 0.8 + 0.1, 0, random() * 0.5 + 0.25, 1)
+      1000ms
+      forwards;
+  }
+  .fade-out-#{$i}-leave-active {
+    animation: fade-out-#{$i}
+      cubic-bezier(random() * 0.8 + 0.1, 0, random() * 0.5 + 0.25, 1)
+      1000ms
+      forwards;
   }
 }
 </style>

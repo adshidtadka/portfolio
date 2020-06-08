@@ -39,10 +39,12 @@ about stealing great ideas.
   computed: {
     width() {
       return document.body.offsetWidth * 0.6;
-    },
-    swichAnimate: () => {
-      this.animate = this.animate == "in" ? "out" : "in";
     }
+  },
+  created() {
+    setInterval(() => {
+      this.animate = this.animate == "in" ? "out" : "in";
+    }, this.animationDuration + 5000);
   },
   methods: {
     _getWindowWidth() {
