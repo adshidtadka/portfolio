@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss">
 body {
-  font-family: "Inconsolata", sans-serif;
+  font-family: "Archivo", sans-serif;
   background: radial-gradient(circle, #222, #0e0e0e);
   #app {
     -webkit-font-smoothing: antialiased;

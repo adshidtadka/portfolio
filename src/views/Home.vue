@@ -22,12 +22,8 @@ export default {
   },
   data() {
     return {
-      text: `
-      Picasso had a saying:
-good artists copy, great artist steal.
-And we have always been shameless
-about stealing great ideas.
-      `.replace(/\n/i, ""),
+      text:
+        "Picasso had a saying: good artists copy, great artist steal. And we have always been shameless about stealing great ideas.",
       fadeInOut: true,
       animationDuration: 4000,
       animationSpeed: 1000,
@@ -55,8 +51,6 @@ about stealing great ideas.
       );
     },
     _setupResizeListener() {
-      // Create "window.throttledResize" event that listens to resize and throttles it to fire once per frame at most
-      // https://developer.mozilla.org/en-US/docs/Web/Events/resize#requestAnimationFrame_customEvent
       let running = false;
       const throttleResize = () => {
         if (!running) {
@@ -83,22 +77,17 @@ about stealing great ideas.
 <style lang="scss" scoped>
 // Styles ------------------------------------------------------
 #home {
-  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  min-height: 480px;
+  min-height: 600px;
   width: 100%;
   min-width: 320px;
   overflow: hidden;
-}
-
-#home {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   color: white;
   font-family: "Inconsolata";
   font-size: 40px;

@@ -52,9 +52,6 @@ export default {
       for (let i = 0; i < textLength; i++) {
         const col = i % charsPerRow;
 
-        // Don't push spaces into the array, and if there is a space at the
-        // beginning of a line, remove it from the original text and put the next
-        // character in its place
         if (text[i] === " ") {
           firstLetterOfWord = true;
           if (col === 0) {
@@ -112,8 +109,7 @@ export default {
         "div",
         {
           class: {
-            container: true,
-            "`${this.className}`": true
+            container: true
           },
           style: {
             height: this.state.numRows * this.fontHeight,
@@ -149,5 +145,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   position: relative;
+  top: -150px;
+  left: 120px;
 }
 </style>
