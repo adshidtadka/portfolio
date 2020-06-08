@@ -111,7 +111,10 @@ export default {
       return createElement(
         "div",
         {
-          class: "container " + this.className,
+          class: {
+            container: true,
+            "`${this.className}`": true
+          },
           style: {
             height: this.state.numRows * this.fontHeight,
             width: this.width
@@ -142,3 +145,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+  position: relative;
+}
+</style>
