@@ -18,8 +18,8 @@
           data-aos-easing="ease-in-out"
           data-aos-duration="1000"
         >
-          スティーブ・ジョブズが引用したピカソの名言です。僕は模倣が得意で多くのスキルがあるのですが,
-          突出したなにかがありません。模倣を超えられるように日々努力しています。
+          スティーブ・ジョブズが引用したピカソの名言です。私は模倣が得意で多くのスキルがあるのですが,
+          突出した強みがありません。模倣を超えられるように日々努力しています。
         </p>
       </b-col>
       <b-col cols="3">
@@ -35,12 +35,28 @@
     <h2 class="second-headline">
       Skillset
     </h2>
-    <b-row class="skill-row" align-h="center">
-      <b-col cols="10">
+    <b-row
+      v-for="skill in skills"
+      :key="skill.name"
+      class="skill-row"
+      align-h="center"
+      align-v="center"
+    >
+      <b-col cols="2">
+        <b-img
+          class="skill-img"
+          width="40px"
+          :src="require('../assets/' + skill.name + '.png')"
+        />
+        <span>{{ skill.formalName }}</span>
+      </b-col>
+      <b-col cols="8">
         <k-progress
           bg-color="#363636"
           color="#e5e5e5"
-          percent="60"
+          cut-color="#363636"
+          :percent="skill.percent"
+          :line-height="12"
         ></k-progress>
       </b-col>
     </b-row>
@@ -53,6 +69,28 @@ import Aos from "aos";
 
 export default {
   name: "About",
+  data() {
+    return {
+      skills: [
+        { formalName: "HTML", name: "html", percent: 60 },
+        { formalName: "CSS", name: "css", percent: 60 },
+        { formalName: "javascript", name: "js", percent: 50 },
+        { formalName: "WordPress", name: "wordpress", percent: 40 },
+        { formalName: "Vue.js", name: "vuejs", percent: 40 },
+        { formalName: "swift", name: "swift", percent: 30 },
+        { formalName: "React", name: "react", percent: 20 },
+        { formalName: "Python", name: "python", percent: 60 },
+        { formalName: "C++", name: "cpp", percent: 60 },
+        { formalName: "MySQL", name: "mysql", percent: 60 },
+        { formalName: "PHP", name: "php", percent: 40 },
+        { formalName: "Docker", name: "docker", percent: 40 },
+        { formalName: "Go", name: "go", percent: 30 },
+        { formalName: "Ruby", name: "ruby", percent: 30 },
+        { formalName: "Java", name: "java", percent: 30 },
+        { formalName: "Vim", name: "vim", percent: 20 },
+      ],
+    };
+  },
   components: {
     KProgress,
   },
@@ -78,11 +116,15 @@ export default {
     }
   }
   .second-headline {
-    margin: 20px auto;
+    margin: 30px auto;
     text-align: center;
   }
   .skill-row {
-    margin: 100px auto;
+    margin: 10px auto;
+    .skill-img {
+      width: 40px;
+      margin-right: 15px;
+    }
   }
 }
 </style>

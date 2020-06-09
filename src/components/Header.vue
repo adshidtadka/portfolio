@@ -1,7 +1,6 @@
 <template>
   <b-navbar
     class="header animate__animated animate__fadeInDown"
-    sticky
     type="dark"
     variant="transparent"
   >
