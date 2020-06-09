@@ -18,7 +18,7 @@ import RandomText from "../components/RandomText";
 export default {
   name: "home",
   components: {
-    RandomText
+    RandomText,
   },
   data() {
     return {
@@ -27,15 +27,15 @@ export default {
       fadeInOut: true,
       animationDuration: 4000,
       animationSpeed: 1000,
-      fontSize: 50,
+      fontSize: 59,
       numKeyframes: 20,
-      animate: "in"
+      animate: "in",
     };
   },
   computed: {
     width() {
       return document.body.offsetWidth * 0.6;
-    }
+    },
   },
   created() {
     setInterval(() => {
@@ -69,8 +69,8 @@ export default {
       if (Math.abs(width * 0.6 - this.state.width) > 100) {
         this.state.width *= 0.6;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -79,8 +79,7 @@ export default {
 #home {
   top: 0;
   left: 0;
-  min-height: 600px;
-  min-width: 320px;
+  min-height: 530px;
   overflow: hidden;
   display: flex;
   flex-direction: row;

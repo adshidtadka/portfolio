@@ -8,10 +8,10 @@
     <b-navbar-brand class="header-title" to="/">
       <b-img
         class="icon"
-        :src="require('../assets/parrot.png')"
+        :src="require('../assets/parrot-icon.png')"
         alt="parrot icon"
       />
-      <span class="header-title-text">adshidtadka</span>
+      <h1 class="header-title-text">adshidtadka</h1>
     </b-navbar-brand>
 
     <b-collapse id="nav-collapse" is-nav>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
 };
 </script>
 
@@ -45,6 +45,7 @@ export default {
       margin-bottom: 17px;
     }
     .header-title-text {
+      display: inline;
       font-size: 30px;
       font-weight: bold;
       letter-spacing: 0.04em;

@@ -1,12 +1,12 @@
 <template>
   <div id="works">
-    <b-img class="char-img" :src="require('../assets/parrot-big.png')"></b-img>
+    <b-img class="char-img" :src="require('../assets/parrot-left.png')" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "Works"
+  name: "Works",
 };
 </script>
 

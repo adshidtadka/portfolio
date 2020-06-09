@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
+  <b-container id="app">
     <Header></Header>
     <transition :name="transitionName" mode="out-in">
       <router-view></router-view>
     </transition>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -16,11 +16,11 @@ export default {
   name: "App",
   data() {
     return {
-      transitionName: "slide-left"
+      transitionName: "slide-left",
     };
   },
   components: {
-    Header
+    Header,
   },
   watch: {
     $route(to, from) {
@@ -30,14 +30,14 @@ export default {
       } else {
         this.transitionName = "slide-right";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 body {
-  font-family: "Archivo", sans-serif;
+  font-family: "M PLUS 1p", sans-serif;
   background: radial-gradient(circle, #222, #0e0e0e);
   #app {
     -webkit-font-smoothing: antialiased;
@@ -48,7 +48,7 @@ body {
     width: 80%;
   }
 }
-.slide-left-enter {
+/* .slide-left-enter {
   transform: translate(1000px, 0);
   opacity: 0;
 }
@@ -58,6 +58,7 @@ body {
 .slide-left-enter-active {
   transition: all 1s 0s ease;
 }
+*/
 .slide-left-leave {
   transform: translate(0, 0);
   opacity: 1;
@@ -69,6 +70,7 @@ body {
 .slide-left-leave-active {
   transition: all 1s 0s ease;
 }
+/*
 .slide-right-enter {
   transform: translate(-1000px, 0);
   opacity: 0;
@@ -79,6 +81,7 @@ body {
 .slide-right-enter-active {
   transition: all 1s 0s ease;
 }
+*/
 .slide-right-leave {
   transform: translate(0, 0);
   opacity: 1;
