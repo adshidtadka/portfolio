@@ -145,7 +145,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   position: relative;
-  top: -150px;
+  top: -140px;
   left: 120px;
 }
 </style>

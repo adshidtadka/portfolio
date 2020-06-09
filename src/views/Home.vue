@@ -79,16 +79,14 @@ export default {
 #home {
   top: 0;
   left: 0;
-  height: 100%;
   min-height: 600px;
-  width: 100%;
   min-width: 320px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #e5e5e5;
   font-family: "Inconsolata";
   font-size: 40px;
 }

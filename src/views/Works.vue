@@ -1,17 +1,17 @@
 <template>
-  <div id="about">
+  <div id="works">
     <b-img class="char-img" :src="require('../assets/parrot-big.png')"></b-img>
   </div>
 </template>
 
 <script>
 export default {
-  name: "About"
+  name: "Works"
 };
 </script>
 
 <style lang="scss" scoped>
-#about {
+#works {
   text-align: center;
 }
 .char-img {

@@ -1,7 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-import About from "./views/About.vue";
+import App from "./App";
+import Home from "./views/Home";
+import About from "./views/About";
+import Works from "./views/Works";
+import Contact from "./views/Contact";
 
 Vue.use(Router);
 
@@ -14,7 +17,21 @@ export default new Router({
     },
     {
       path: "/about",
-      component: About
+      component: About,
+      beforeEnter(to, from, next) {
+        if (from.path == "/") {
+          App.data().transitionName = "slide-right";
+        }
+        next();
+      }
+    },
+    {
+      path: "/works",
+      component: Works
+    },
+    {
+      path: "/contact",
+      component: Contact
     },
     {
       path: "*",

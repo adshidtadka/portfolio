@@ -5,14 +5,21 @@
     type="dark"
     variant="transparent"
   >
-    <b-navbar-brand class="header-title" href="#">adshidtadka</b-navbar-brand>
+    <b-navbar-brand class="header-title" to="/">
+      <b-img
+        class="icon"
+        :src="require('../assets/parrot.png')"
+        alt="parrot icon"
+      />
+      <span class="header-title-text">adshidtadka</span>
+    </b-navbar-brand>
 
     <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#">About</b-nav-item>
-        <b-nav-item href="#">Works</b-nav-item>
-        <b-nav-item href="#">Contact</b-nav-item>
+        <b-nav-item to="/about">About</b-nav-item>
+        <b-nav-item to="/works">Works</b-nav-item>
+        <b-nav-item to="/contact">Contact</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -32,9 +39,17 @@ export default {
   margin-bottom: 20px;
 
   .header-title {
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: 0.04em;
+    .icon {
+      width: 30px;
+      margin-right: 5px;
+      margin-bottom: 17px;
+    }
+    .header-title-text {
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      color: #e5e5e5;
+    }
   }
 }
 </style>
