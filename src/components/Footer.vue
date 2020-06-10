@@ -1,9 +1,6 @@
 <template>
   <div id="footer">
-    <b-breadcrumb
-      v-if="route != '/'"
-      class="breadcrumb animate__animated animate__fadeInUp"
-    >
+    <b-breadcrumb v-if="route != '/'" class="breadcrumb">
       <b-breadcrumb-item class="item" to="/">
         <b-icon
           icon="house-fill"
