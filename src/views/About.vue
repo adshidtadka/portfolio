@@ -60,12 +60,14 @@
         ></k-progress>
       </b-col>
     </b-row>
+    <Footer route="/about"></Footer>
   </div>
 </template>
 
 <script>
 import KProgress from "k-progress";
 import Aos from "aos";
+import Footer from "./../components/Footer";
 
 export default {
   name: "About",
@@ -74,10 +76,10 @@ export default {
       skills: [
         { formalName: "HTML", name: "html", percent: 60 },
         { formalName: "CSS", name: "css", percent: 60 },
-        { formalName: "javascript", name: "js", percent: 50 },
+        { formalName: "Javascript", name: "js", percent: 50 },
         { formalName: "WordPress", name: "wordpress", percent: 40 },
         { formalName: "Vue.js", name: "vuejs", percent: 40 },
-        { formalName: "swift", name: "swift", percent: 30 },
+        { formalName: "Swift", name: "swift", percent: 30 },
         { formalName: "React", name: "react", percent: 20 },
         { formalName: "Python", name: "python", percent: 60 },
         { formalName: "C++", name: "cpp", percent: 60 },
@@ -92,6 +94,7 @@ export default {
     };
   },
   components: {
+    Footer,
     KProgress,
   },
 };

@@ -1,21 +1,24 @@
 <template>
   <div id="works">
-    <b-img class="char-img" :src="require('../assets/parrot-left.png')" />
+    Comming soon...
+    <Footer route="/works"></Footer>
   </div>
 </template>
 
 <script>
+import Footer from "./../components/Footer";
+
 export default {
   name: "Works",
+  components: {
+    Footer,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 #works {
   text-align: center;
-}
-.char-img {
-  width: 300px;
-  margin: 100px auto;
+  margin: 200px auto;
 }
 </style>

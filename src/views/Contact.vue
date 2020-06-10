@@ -1,21 +1,25 @@
 <template>
   <div id="contact">
-    <b-img class="char-img" :src="require('../assets/parrot-left.png')" />
+    Comming soon...
+    <Footer route="/contact"></Footer>
   </div>
 </template>
 
 <script>
+import Footer from "./../components/Footer";
+
 export default {
   name: "Contact",
+  components: {
+    Footer,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 #contact {
+  margin: 200px auto;
   text-align: center;
-}
-.char-img {
-  width: 300px;
-  margin: 100px auto;
+  height: 100%;
 }
 </style>
