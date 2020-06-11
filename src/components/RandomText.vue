@@ -4,7 +4,7 @@ import Letter from "./Letter";
 export default {
   name: "RandomText",
   components: {
-    Letter
+    Letter,
   },
   props: {
     text: String,
@@ -15,15 +15,15 @@ export default {
     animationDuration: Number,
     animate: String,
     homePage: Boolean,
-    numKeyframes: Number
+    numKeyframes: Number,
   },
   data() {
     return {
       state: {
         numRows: null,
         chars: null,
-        updated: false
-      }
+        updated: false,
+      },
     };
   },
   watch: {
@@ -32,7 +32,7 @@ export default {
     },
     width() {
       this.state = this._mapCharPositions();
-    }
+    },
   },
   mounted() {
     this.state = this._mapCharPositions();
@@ -93,13 +93,13 @@ export default {
           chars.push([
             col * fontWidth + margin * (col + 1), // x
             Math.floor(i / charsPerRow) * this.fontHeight, // y
-            text[i]
+            text[i],
           ]);
         }
       }
       const numRows = Math.ceil(textLength / charsPerRow);
       return { numRows, chars, updated: true };
-    }
+    },
   },
   render(createElement) {
     if (this.state.chars == null) {
@@ -109,12 +109,12 @@ export default {
         "div",
         {
           class: {
-            container: true
+            "char-container": true,
           },
           style: {
             height: this.state.numRows * this.fontHeight,
-            width: this.width
-          }
+            width: this.width,
+          },
         },
         this.state.chars.map((char, i) => {
           return createElement(Letter, {
@@ -132,20 +132,21 @@ export default {
               animationStart:
                 ((this.animationDuration - this.animationSpeed) /
                   this.state.chars.length) *
-                i
-            }
+                i,
+            },
           });
         })
       );
     }
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
+.char-container {
   position: relative;
-  top: -140px;
-  left: 120px;
+  width: 80%;
+  top: -80px;
+  height: auto;
 }
 </style>

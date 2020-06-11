@@ -52,7 +52,7 @@ body {
     font-size: 16px;
     margin: 0 auto;
     color: #e5e5e5;
-    width: 80%;
+    width: 85%;
     height: auto;
     min-height: 100%;
     position: relative;
