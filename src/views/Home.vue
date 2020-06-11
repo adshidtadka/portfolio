@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     width() {
-      return document.getElementById("app").offsetWidth * 0.8;
+      return document.getElementById("app").offsetWidth * 0.6;
     },
   },
   created() {
@@ -45,7 +45,6 @@ export default {
   methods: {
     _getWindowWidth() {
       return (
-        document.getElementById("app").offsetWidth ||
         window.innerWidth ||
         document.documentElement.clientWidth ||
         document.body.clientWidth
