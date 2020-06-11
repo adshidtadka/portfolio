@@ -27,14 +27,14 @@ export default {
       fadeInOut: true,
       animationDuration: 4000,
       animationSpeed: 1000,
-      fontSize: 59,
+      fontSize: 55,
       numKeyframes: 20,
       animate: "in",
     };
   },
   computed: {
     width() {
-      return document.body.offsetWidth * 0.6;
+      return document.getElementById("app").offsetWidth * 0.8;
     },
   },
   created() {
@@ -45,6 +45,7 @@ export default {
   methods: {
     _getWindowWidth() {
       return (
+        document.getElementById("app").offsetWidth ||
         window.innerWidth ||
         document.documentElement.clientWidth ||
         document.body.clientWidth
@@ -66,8 +67,8 @@ export default {
     },
     _handleResize() {
       const width = this._getWindowWidth();
-      if (Math.abs(width * 0.6 - this.state.width) > 100) {
-        this.state.width *= 0.6;
+      if (Math.abs(width * 0.6 - this.width) > 100) {
+        this.width *= 0.6;
       }
     },
   },
@@ -77,8 +78,7 @@ export default {
 <style lang="scss" scoped>
 // Styles ------------------------------------------------------
 #home {
-  top: 0;
-  left: 0;
+  width: 100%;
   min-height: 530px;
   overflow: hidden;
   display: flex;
