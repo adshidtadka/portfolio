@@ -1,17 +1,17 @@
 <template>
   <div id="works">
     Comming soon...
-    <Footer route="/works"></Footer>
+    <!-- <Footer route="/works"></Footer> -->
   </div>
 </template>
 
 <script>
-import Footer from "./../components/Footer";
+// import Footer from "./../components/Footer";
 
 export default {
   name: "Works",
   components: {
-    Footer,
+    // Footer,
   },
 };
 </script>

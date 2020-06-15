@@ -60,14 +60,12 @@
         ></k-progress>
       </b-col>
     </b-row>
-    <Footer route="/about"></Footer>
   </div>
 </template>
 
 <script>
 import KProgress from "k-progress";
 import Aos from "aos";
-import Footer from "./../components/Footer";
 
 export default {
   name: "About",
@@ -94,7 +92,6 @@ export default {
     };
   },
   components: {
-    Footer,
     KProgress,
   },
 };

@@ -1,18 +1,12 @@
 <template>
   <div id="contact">
     Comming soon...
-    <Footer route="/contact"></Footer>
   </div>
 </template>
 
 <script>
-import Footer from "./../components/Footer";
-
 export default {
   name: "Contact",
-  components: {
-    Footer,
-  },
 };
 </script>
 
