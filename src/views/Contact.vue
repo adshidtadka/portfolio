@@ -86,12 +86,19 @@ export default {
     };
   },
   created() {
-    console.log(process.env.VUE_APP_FOO);
+    console.log(process.env.VUE_APP_EMAILJS_SERVICE);
+    console.log(process.env.VUE_APP_EMAILJS_TEMPLATE);
+    console.log(process.env.VUE_APP_EMAILJS_USER);
   },
   methods: {
     sendEmail(e) {
       emailjs
-        .sendForm("contact_server", "template_xxxx", e.target, "user_xxxx")
+        .sendForm(
+          process.env.VUE_APP_EMAILJS_SERVICE,
+          process.env.VUE_APP_EMAILJS_TEMPLATE,
+          e.target,
+          process.env.VUE_APP_EMAILJS_USER
+        )
         .then(
           (result) => {
             console.log("SUCCESS!", result.status, result.text);
