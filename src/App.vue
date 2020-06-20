@@ -4,9 +4,7 @@
     <transition :name="transitionName" mode="out-in">
       <router-view class="view"></router-view>
     </transition>
-    <!-- <transition :name="transitionName" mode="out&#45;in"> -->
-    <!--   <Footer :route="$route.path"></Footer> -->
-    <!-- </transition> -->
+    <Footer :route="$route.path"></Footer>
   </b-container>
 </template>
 
@@ -25,7 +23,7 @@ export default {
   },
   components: {
     Header,
-    // Footer,
+    Footer,
   },
   watch: {
     $route(to, from) {
@@ -69,11 +67,11 @@ a:hover {
 }
 
 .slide-left-leave {
-  transform: translate(0, 0);
+  transform: translateX(0);
   opacity: 1;
 }
 .slide-left-leave-to {
-  transform: translate(-1000px, 0);
+  transform: translateX(-1000px);
   opacity: 0;
 }
 .slide-left-leave-active {
@@ -81,11 +79,11 @@ a:hover {
 }
 
 .slide-right-leave {
-  transform: translate(0, 0);
+  transform: translateX(0);
   opacity: 1;
 }
 .slide-right-leave-to {
-  transform: translate(1000px, 0);
+  transform: translateX(1000px);
   opacity: 0;
 }
 .slide-right-leave-active {
