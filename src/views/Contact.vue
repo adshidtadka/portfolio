@@ -38,7 +38,7 @@
       </b-form-group>
 
       <b-form-group
-        data-aos="fade-right"
+        data-aos="fade-left"
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
         id="input-group-3"
@@ -58,7 +58,7 @@
       </b-form-group>
 
       <b-button
-        data-aos="fade-left"
+        data-aos="fade-right"
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
         type="submit"
@@ -84,11 +84,6 @@ export default {
       },
       show: true,
     };
-  },
-  created() {
-    console.log(process.env.VUE_APP_EMAILJS_SERVICE);
-    console.log(process.env.VUE_APP_EMAILJS_TEMPLATE);
-    console.log(process.env.VUE_APP_EMAILJS_USER);
   },
   methods: {
     sendEmail(e) {
