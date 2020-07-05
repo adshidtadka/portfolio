@@ -18,8 +18,8 @@
           data-aos-easing="ease-in-out"
           data-aos-duration="1000"
         >
-          スティーブ・ジョブズが引用したピカソの名言です。私は模倣が得意で多くのスキルがあるのですが,
-          突出した強みがありません。模倣を超えられるように日々努力しています。
+          "素晴らしいアーティストはコピーし,
+          偉大なアーティストは盗む"、スティーブ・ジョブズが引用したピカソの名言です。模倣し会得する貪欲さが自分の強みだと思っています。
         </p>
       </b-col>
       <b-col cols="3">
@@ -75,8 +75,10 @@ export default {
         { formalName: "HTML", name: "html", percent: 60 },
         { formalName: "CSS", name: "css", percent: 60 },
         { formalName: "Javascript", name: "js", percent: 50 },
+        { formalName: "Typescript", name: "ts", percent: 40 },
         { formalName: "WordPress", name: "wordpress", percent: 40 },
         { formalName: "Vue.js", name: "vuejs", percent: 40 },
+        { formalName: "Angular", name: "angular", percent: 40 },
         { formalName: "Swift", name: "swift", percent: 30 },
         { formalName: "React", name: "react", percent: 20 },
         { formalName: "Python", name: "python", percent: 60 },
