@@ -1,5 +1,6 @@
 <template>
   <b-container id="app">
+    <CycleLoader v-show="loading"></CycleLoader>
     <Header></Header>
     <transition :name="transitionName" mode="out-in">
       <router-view class="view"></router-view>
@@ -9,8 +10,10 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import CycleLoader from "./components/CycleLoader";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
@@ -19,11 +22,18 @@ export default {
   data() {
     return {
       transitionName: "slide-left",
+      loading: true,
     };
   },
   components: {
     Header,
     Footer,
+    CycleLoader,
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 500);
   },
   watch: {
     $route(to, from) {
