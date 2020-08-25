@@ -86,6 +86,7 @@ export default {
         { formalName: "MySQL", name: "mysql", percent: 60 },
         { formalName: "PHP", name: "php", percent: 40 },
         { formalName: "Docker", name: "docker", percent: 40 },
+        { formalName: "Kubernetes", name: "k8s", percent: 30 },
         { formalName: "Go", name: "go", percent: 30 },
         { formalName: "Ruby", name: "ruby", percent: 30 },
         { formalName: "Java", name: "java", percent: 30 },
