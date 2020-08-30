@@ -3,6 +3,7 @@
     class="header animate__animated animate__fadeInDown"
     type="dark"
     variant="transparent"
+    toggleable="md"
   >
     <b-navbar-brand class="header-title" to="/">
       <b-img
@@ -12,6 +13,13 @@
       />
       <h1 class="header-title-text">adshidtadka</h1>
     </b-navbar-brand>
+
+    <b-navbar-toggle target="navbar-collapse">
+      <template v-slot:default="{ expanded }">
+        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+        <b-icon v-else icon="chevron-bar-down"></b-icon>
+      </template>
+    </b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
