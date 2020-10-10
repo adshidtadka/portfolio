@@ -19,7 +19,7 @@
       </b-col>
       <b-col lg="3">
         <b-img
-          class="char-img"
+          class="char-img d-none d-lg-block"
           data-aos="zoom-in"
           data-aos-easing="ease-in-out"
           data-aos-duration="1000"
@@ -90,18 +90,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../node_modules/rfs/scss";
+
 #about {
   .proverb-row {
-    margin: 230px auto;
+    margin: 50px auto;
     .proverb {
-      font-size: 23px;
+      @include font-size(1.5rem);
       text-align: justify;
-      margin-right: 45px;
     }
     .text {
-      font-size: 20px;
+      @include font-size(1.2rem);
       text-align: justify;
-      margin-right: 45px;
     }
     .char-img {
       width: 150px;
