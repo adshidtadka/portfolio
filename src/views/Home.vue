@@ -27,14 +27,17 @@ export default {
       fadeInOut: true,
       animationDuration: 4000,
       animationSpeed: 1000,
-      fontSize: 55,
+      fontSize: window.innerWidth < 992 ? 30 : 55,
       numKeyframes: 20,
       animate: "in",
     };
   },
   computed: {
     width() {
-      return document.getElementById("app").offsetWidth * 0.6;
+      return (
+        document.getElementById("app").offsetWidth *
+        (window.innerWidth < 992 ? 0.8 : 0.6)
+      );
     },
   },
   created() {
@@ -75,7 +78,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// Styles ------------------------------------------------------
 #home {
   width: 100%;
   min-height: 530px;
