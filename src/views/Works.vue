@@ -1,6 +1,6 @@
 <template>
   <div id="works">
-    <div>
+    <b-card-group>
       <b-card
         v-b-modal.modal-blog
         data-aos="zoom-in"
@@ -8,15 +8,11 @@
         data-aos-duration="1000"
         overlay
         :img-src="require('../assets/blog.jpg')"
-        img-alt="Image"
-        text-variant="while"
+        img-alt="background image"
         title="blog"
-        class="card mb-2"
+        class="card mb-2 mx-3"
       >
-        <b-card-text class="text">
-          WordPressで構築した
-          <br />技術に関するブログ
-        </b-card-text>
+        <b-card-text class="text">WordPressで構築した技術に関するブログ</b-card-text>
         <b-modal centered id="modal-blog" title="blog" hide-footer>
           サーバーとドメインを借りて自分で運用しています。
           <b-link
@@ -27,18 +23,21 @@
         </b-modal>
       </b-card>
       <b-card
+        v-b-modal.modal-simulator
         data-aos="zoom-in"
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
         overlay
         :img-src="require('../assets/portfolio.png')"
-        tag="article"
+        img-alt="background image"
         title="portfolio"
-        class="card mb-2"
+        class="card mb-2 mx-3"
       >
         <b-card-text>Vue.jsで作ったこのポートフォリオサイト</b-card-text>
         <b-modal centered id="modal-portfolio" title="portfolio" hide-footer>自分の技術力を示すためのものとして作りました。</b-modal>
       </b-card>
+    </b-card-group>
+    <b-card-group>
       <b-card
         v-b-modal.modal-atsumeta
         data-aos="zoom-in"
@@ -46,10 +45,9 @@
         data-aos-duration="1000"
         overlay
         :img-src="require('../assets/squirrel.jpg')"
-        img-alt="Image"
-        tag="article"
+        img-alt="background image"
         title="atsumeta"
-        class="card mb-2"
+        class="card mb-2 mx-3"
       >
         <b-card-text>企業の技術ブログをまとめたキュレーションサイト</b-card-text>
         <b-modal
@@ -66,10 +64,9 @@
         data-aos-duration="1000"
         overlay
         :img-src="require('../assets/simulator.jpg')"
-        img-alt="Image"
-        tag="article"
+        img-alt="background image"
         title="simulator"
-        class="card mb-2"
+        class="card mb-2 mx-3"
       >
         <b-card-text class="card-text">Python, C++で作ったサーバー割り当てシミュレーター</b-card-text>
         <b-modal centered id="modal-simulator" title="simulator" hide-footer>
@@ -86,7 +83,7 @@
           <br />
         </b-modal>
       </b-card>
-    </div>
+    </b-card-group>
   </div>
 </template>
 
