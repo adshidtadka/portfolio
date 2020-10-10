@@ -1,7 +1,7 @@
 <template>
   <div id="about">
     <b-row class="proverb-row" align-h="center" align-v="center">
-      <b-col cols="6">
+      <b-col lg="6">
         <p
           class="proverb"
           data-aos="fade-right"
@@ -12,17 +12,12 @@
           have always been shameless about stealing great ideas."
         </p>
         <br />
-        <p
-          class="text"
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="1000"
-        >
+        <p class="text" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="1000">
           "素晴らしいアーティストはコピーし,
           偉大なアーティストは盗む"、スティーブ・ジョブズが引用したピカソの名言です。模倣し会得する貪欲さが自分の強みだと思っています。
         </p>
       </b-col>
-      <b-col cols="3">
+      <b-col lg="3">
         <b-img
           class="char-img"
           data-aos="zoom-in"
@@ -32,9 +27,7 @@
         />
       </b-col>
     </b-row>
-    <h2 class="second-headline">
-      Skillset
-    </h2>
+    <h2 class="second-headline">Skillset</h2>
     <b-row
       v-for="skill in skills"
       :key="skill.name"
@@ -43,11 +36,7 @@
       align-v="center"
     >
       <b-col cols="2">
-        <b-img
-          class="skill-img"
-          width="40px"
-          :src="require('../assets/' + skill.name + '.png')"
-        />
+        <b-img class="skill-img" width="40px" :src="require('../assets/' + skill.name + '.png')" />
         <span>{{ skill.formalName }}</span>
       </b-col>
       <b-col cols="8">
