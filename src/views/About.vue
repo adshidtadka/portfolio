@@ -35,11 +35,11 @@
       align-h="center"
       align-v="center"
     >
-      <b-col cols="2">
+      <b-col lg="2">
         <b-img class="skill-img" width="40px" :src="require('../assets/' + skill.name + '.png')" />
         <span>{{ skill.formalName }}</span>
       </b-col>
-      <b-col cols="8">
+      <b-col lg="8">
         <k-progress
           bg-color="#363636"
           color="#e5e5e5"
