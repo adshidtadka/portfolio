@@ -6,11 +6,7 @@
     toggleable="md"
   >
     <b-navbar-brand class="header-title" to="/">
-      <b-img
-        class="icon"
-        :src="require('../assets/parrot-icon.png')"
-        alt="parrot icon"
-      />
+      <b-img class="icon" :src="require('../assets/parrot-icon.png')" alt="parrot icon" />
       <h1 class="header-title-text">adshidtadka</h1>
     </b-navbar-brand>
 
@@ -21,7 +17,7 @@
       </template>
     </b-navbar-toggle>
 
-    <b-collapse id="nav-collapse" is-nav>
+    <b-collapse id="navbar-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item to="/about">About</b-nav-item>
