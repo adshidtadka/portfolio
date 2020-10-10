@@ -1,5 +1,5 @@
 <template>
-  <b-container id="app">
+  <b-container id="app" fluid="md">
     <CycleLoader v-show="loading"></CycleLoader>
     <Header></Header>
     <transition :name="transitionName" mode="out-in">
@@ -60,7 +60,6 @@ body {
     font-size: 16px;
     margin: 0 auto;
     color: #e5e5e5;
-    width: 85%;
     height: auto;
     min-height: 100%;
     position: relative;
