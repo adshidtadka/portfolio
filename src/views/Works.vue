@@ -97,12 +97,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../node_modules/rfs/scss";
+
 #works {
-  .row {
-    margin: 20px 50px;
-    .card {
-      border: none;
-    }
+  .card {
+    border: none;
+    @include font-size(1rem);
   }
 }
 .link {
