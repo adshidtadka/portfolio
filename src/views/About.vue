@@ -69,7 +69,7 @@ export default {
         { formalName: "Vue.js", name: "vuejs", percent: 50 },
         { formalName: "Angular", name: "angular", percent: 50 },
         { formalName: "Swift", name: "swift", percent: 30 },
-        { formalName: "React", name: "react", percent: 20 },
+        { formalName: "React", name: "react", percent: 30 },
         { formalName: "Python", name: "python", percent: 60 },
         { formalName: "C++", name: "cpp", percent: 60 },
         { formalName: "MySQL", name: "mysql", percent: 60 },
