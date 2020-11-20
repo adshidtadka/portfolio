@@ -23,7 +23,7 @@
         </b-modal>
       </b-card>
       <b-card
-        v-b-modal.modal-simulator
+        v-b-modal.modal-portfolio
         data-aos="zoom-in"
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
