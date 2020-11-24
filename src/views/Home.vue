@@ -36,7 +36,7 @@ export default {
     width() {
       return (
         document.getElementById("app").offsetWidth *
-        (window.innerWidth < 992 ? 0.8 : 0.6)
+        (window.innerWidth < 992 ? 0.8 : 0.5)
       );
     },
   },
