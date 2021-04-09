@@ -71,10 +71,23 @@ export default {
         )
         .then(
           (result) => {
-            console.log("SUCCESS!", result.status, result.text);
+            this.$bvToast.toast("You sent a message", {
+              title: "Success",
+              variant: "success",
+              autoHideDelay: 5000,
+              appendToast: false,
+            });
           },
           (error) => {
-            console.log("FAILED...", error);
+            this.$bvToast.toast(
+              `Sorry. Failed to send your message because ${result.text}`,
+              {
+                title: `${result.status} Error`,
+                variant: "danger",
+                autoHideDelay: 5000,
+                appendToast: false,
+              }
+            );
           }
         );
     },
