@@ -1,14 +1,7 @@
 <template>
   <div id="contact">
     <b-form @submit.prevent="sendEmail" v-if="show">
-      <b-form-group
-        data-aos="fade-left"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-        id="input-group-2"
-        label="Name:"
-        label-for="input-2"
-      >
+      <b-form-group id="input-group-2" label="Name:" label-for="input-2">
         <b-form-input
           name="from_name"
           id="input-2"
@@ -19,9 +12,6 @@
       </b-form-group>
 
       <b-form-group
-        data-aos="fade-right"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
         id="input-group-1"
         label="Email:"
         label-for="input-1"
@@ -37,14 +27,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group
-        data-aos="fade-left"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-        id="input-group-3"
-        label="Message:"
-        label-for="input-3"
-      >
+      <b-form-group id="input-group-3" label="Message:" label-for="input-3">
         <b-form-textarea
           name="message_html"
           id="textarea-no-resize"
@@ -57,15 +40,7 @@
         </b-form-textarea>
       </b-form-group>
 
-      <b-button
-        data-aos="fade-right"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-        type="submit"
-        variant="secondary"
-      >
-        Submit
-      </b-button>
+      <b-button type="submit" variant="secondary"> Submit </b-button>
     </b-form>
   </div>
 </template>
